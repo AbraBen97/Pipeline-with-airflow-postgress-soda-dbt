@@ -1,0 +1,36 @@
+[2024-07-02T15:24:34.134+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline.cde_la_table manual__2024-07-02T15:24:32.726421+00:00 [queued]>
+[2024-07-02T15:24:34.143+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline.cde_la_table manual__2024-07-02T15:24:32.726421+00:00 [queued]>
+[2024-07-02T15:24:34.144+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-07-02T15:24:34.156+0000] {taskinstance.py:2192} INFO - Executing <Task(PostgresOperator): cde_la_table> on 2024-07-02 15:24:32.726421+00:00
+[2024-07-02T15:24:34.162+0000] {standard_task_runner.py:60} INFO - Started process 1071 to run task
+[2024-07-02T15:24:34.165+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pipeline', 'cde_la_table', 'manual__2024-07-02T15:24:32.726421+00:00', '--job-id', '14', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmp7b4l1o3h']
+[2024-07-02T15:24:34.167+0000] {standard_task_runner.py:88} INFO - Job 14: Subtask cde_la_table
+[2024-07-02T15:24:34.208+0000] {task_command.py:423} INFO - Running <TaskInstance: pipeline.cde_la_table manual__2024-07-02T15:24:32.726421+00:00 [running]> on host e21b7712e0d7
+[2024-07-02T15:24:34.278+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pipeline' AIRFLOW_CTX_TASK_ID='cde_la_table' AIRFLOW_CTX_EXECUTION_DATE='2024-07-02T15:24:32.726421+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-02T15:24:32.726421+00:00'
+[2024-07-02T15:24:34.278+0000] {sql.py:276} INFO - Executing: 
+            CREATE TABLE IF NOT EXISTS products (
+                InvoiceNo TEXT ,
+                StockCode TEXT ,
+                Description TEXT ,
+                Quantity INTEGER ,
+                InvoiceDate TIMESTAMP ,
+                UnitPrice REAL ,
+                CustomerID REAL  ,
+                Country TEXT 
+            );
+[2024-07-02T15:24:34.286+0000] {base.py:83} INFO - Using connection ID 'postgres' for task execution.
+[2024-07-02T15:24:34.293+0000] {base.py:83} INFO - Using connection ID 'postgres' for task execution.
+[2024-07-02T15:24:34.296+0000] {sql.py:432} INFO - Running statement: 
+            CREATE TABLE IF NOT EXISTS products (
+                InvoiceNo TEXT ,
+                StockCode TEXT ,
+                Description TEXT ,
+                Quantity INTEGER ,
+                InvoiceDate TIMESTAMP ,
+                UnitPrice REAL ,
+                CustomerID REAL  ,
+                Country TEXT 
+            );, parameters: None
+[2024-07-02T15:24:34.305+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=pipeline, task_id=cde_la_table, execution_date=20240702T152432, start_date=20240702T152434, end_date=20240702T152434
+[2024-07-02T15:24:34.337+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-07-02T15:24:34.365+0000] {taskinstance.py:3281} INFO - 1 downstream tasks scheduled from follow-on schedule check

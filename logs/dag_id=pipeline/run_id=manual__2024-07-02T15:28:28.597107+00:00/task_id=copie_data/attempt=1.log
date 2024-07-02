@@ -1,0 +1,20 @@
+[2024-07-02T15:28:31.886+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline.copie_data manual__2024-07-02T15:28:28.597107+00:00 [queued]>
+[2024-07-02T15:28:31.893+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline.copie_data manual__2024-07-02T15:28:28.597107+00:00 [queued]>
+[2024-07-02T15:28:31.894+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-07-02T15:28:31.905+0000] {taskinstance.py:2192} INFO - Executing <Task(PythonOperator): copie_data> on 2024-07-02 15:28:28.597107+00:00
+[2024-07-02T15:28:31.911+0000] {standard_task_runner.py:60} INFO - Started process 1213 to run task
+[2024-07-02T15:28:31.914+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pipeline', 'copie_data', 'manual__2024-07-02T15:28:28.597107+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmplrmn3xxd']
+[2024-07-02T15:28:31.916+0000] {standard_task_runner.py:88} INFO - Job 24: Subtask copie_data
+[2024-07-02T15:28:31.954+0000] {task_command.py:423} INFO - Running <TaskInstance: pipeline.copie_data manual__2024-07-02T15:28:28.597107+00:00 [running]> on host e21b7712e0d7
+[2024-07-02T15:28:32.023+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pipeline' AIRFLOW_CTX_TASK_ID='copie_data' AIRFLOW_CTX_EXECUTION_DATE='2024-07-02T15:28:28.597107+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-02T15:28:28.597107+00:00'
+[2024-07-02T15:28:32.024+0000] {postgres.py:172} INFO - Running copy expert: 
+    COPY products (InvoiceNo, StockCode, Description, Quantity,InvoiceDate, UnitPrice, CustomerID, Country)
+    FROM stdin
+    WITH DELIMITER ','
+    CSV HEADER
+    , filename: /opt/***/dossier/data/online_retail.csv
+[2024-07-02T15:28:32.033+0000] {base.py:83} INFO - Using connection ID 'postgres' for task execution.
+[2024-07-02T15:28:33.174+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-07-02T15:28:33.183+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=pipeline, task_id=copie_data, execution_date=20240702T152828, start_date=20240702T152831, end_date=20240702T152833
+[2024-07-02T15:28:33.212+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-07-02T15:28:33.238+0000] {taskinstance.py:3281} INFO - 1 downstream tasks scheduled from follow-on schedule check

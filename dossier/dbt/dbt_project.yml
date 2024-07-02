@@ -1,0 +1,7 @@
+name: 'airflow'
+profile: 'airflow'
+
+
+models:
+  airflow:
+  materialized: table

@@ -1,0 +1,238 @@
+[2024-07-02T15:25:18.756+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline.check_transform manual__2024-07-02T15:24:32.726421+00:00 [queued]>
+[2024-07-02T15:25:18.765+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline.check_transform manual__2024-07-02T15:24:32.726421+00:00 [queued]>
+[2024-07-02T15:25:18.765+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-07-02T15:25:18.780+0000] {taskinstance.py:2192} INFO - Executing <Task(_PythonExternalDecoratedOperator): check_transform> on 2024-07-02 15:24:32.726421+00:00
+[2024-07-02T15:25:18.789+0000] {standard_task_runner.py:60} INFO - Started process 1147 to run task
+[2024-07-02T15:25:18.793+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pipeline', 'check_transform', 'manual__2024-07-02T15:24:32.726421+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmp6j2w5jat']
+[2024-07-02T15:25:18.796+0000] {standard_task_runner.py:88} INFO - Job 22: Subtask check_transform
+[2024-07-02T15:25:18.840+0000] {task_command.py:423} INFO - Running <TaskInstance: pipeline.check_transform manual__2024-07-02T15:24:32.726421+00:00 [running]> on host e21b7712e0d7
+[2024-07-02T15:25:18.907+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pipeline' AIRFLOW_CTX_TASK_ID='check_transform' AIRFLOW_CTX_EXECUTION_DATE='2024-07-02T15:24:32.726421+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-02T15:24:32.726421+00:00'
+[2024-07-02T15:25:18.945+0000] {python.py:903} WARNING - When checking for Airflow installed in virtual environment got Command '['/opt/airflow/soda_venv/bin/python', '-c', 'from airflow import __version__; print(__version__)']' returned non-zero exit status 1.
+[2024-07-02T15:25:18.947+0000] {python.py:904} WARNING - This means that Airflow is not properly installed by  /opt/***/soda_venv/bin/python. Airflow context keys will not be available. Please Install Airflow 2.8.0 in your environment to access them.
+[2024-07-02T15:25:19.213+0000] {process_utils.py:182} INFO - Executing cmd: /opt/***/soda_venv/bin/python /tmp/venv-call3ggps8ye/script.py /tmp/venv-call3ggps8ye/script.in /tmp/venv-call3ggps8ye/script.out /tmp/venv-call3ggps8ye/string_args.txt /tmp/venv-call3ggps8ye/termination.log
+[2024-07-02T15:25:19.236+0000] {process_utils.py:186} INFO - Output:
+[2024-07-02T15:25:24.980+0000] {process_utils.py:190} INFO - Running Soda Scan ...
+[2024-07-02T15:25:24.980+0000] {process_utils.py:190} INFO - INFO   | Soda Core 3.0.45
+[2024-07-02T15:25:24.981+0000] {process_utils.py:190} INFO - DEBUG  | Reading configuration file "/opt/***/dossier/soda/configuration/configuration.yml"
+[2024-07-02T15:25:24.981+0000] {process_utils.py:190} INFO - DEBUG  | Reading SodaCL file "/opt/***/dossier/soda/checks/transform/fct_invoices.yml"
+[2024-07-02T15:25:24.981+0000] {process_utils.py:190} INFO - DEBUG  | Reading SodaCL file "/opt/***/dossier/soda/checks/transform/dim_customer.yml"
+[2024-07-02T15:25:24.982+0000] {process_utils.py:190} INFO - DEBUG  | Reading SodaCL file "/opt/***/dossier/soda/checks/transform/dim_product.yml"
+[2024-07-02T15:25:24.982+0000] {process_utils.py:190} INFO - DEBUG  | Reading SodaCL file "/opt/***/dossier/soda/checks/transform/dim_datetime.yml"
+[2024-07-02T15:25:24.982+0000] {process_utils.py:190} INFO - DEBUG  | Scan execution starts
+[2024-07-02T15:25:24.983+0000] {process_utils.py:190} INFO - DEBUG  | Postgres connection properties: host="postgres", port="None", database="***", user="***", options="-c search_path=public", connection_timeout="None"
+[2024-07-02T15:25:24.983+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.fct_invoices.aggregation[0]:
+[2024-07-02T15:25:24.983+0000] {process_utils.py:190} INFO - SELECT
+[2024-07-02T15:25:24.983+0000] {process_utils.py:190} INFO -   COUNT(CASE WHEN invoice_id IS NULL THEN 1 END)
+[2024-07-02T15:25:24.984+0000] {process_utils.py:190} INFO - FROM public.fct_invoices
+[2024-07-02T15:25:24.984+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.dim_customer.aggregation[0]:
+[2024-07-02T15:25:24.984+0000] {process_utils.py:190} INFO - SELECT
+[2024-07-02T15:25:24.984+0000] {process_utils.py:190} INFO -   COUNT(CASE WHEN customer_id IS NULL THEN 1 END)
+[2024-07-02T15:25:24.984+0000] {process_utils.py:190} INFO - FROM public.dim_customer
+[2024-07-02T15:25:24.985+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.dim_customer.customer_id.duplicate_count:
+[2024-07-02T15:25:24.985+0000] {process_utils.py:190} INFO - 
+[2024-07-02T15:25:24.985+0000] {process_utils.py:190} INFO - WITH frequencies AS (
+[2024-07-02T15:25:24.985+0000] {process_utils.py:190} INFO -     SELECT COUNT(*) AS frequency
+[2024-07-02T15:25:24.985+0000] {process_utils.py:190} INFO -     FROM public.dim_customer
+[2024-07-02T15:25:24.986+0000] {process_utils.py:190} INFO -     WHERE customer_id IS NOT NULL
+[2024-07-02T15:25:24.986+0000] {process_utils.py:190} INFO -     GROUP BY customer_id)
+[2024-07-02T15:25:24.986+0000] {process_utils.py:190} INFO - SELECT count(*)
+[2024-07-02T15:25:24.986+0000] {process_utils.py:190} INFO - FROM frequencies
+[2024-07-02T15:25:24.986+0000] {process_utils.py:190} INFO - WHERE frequency > 1
+[2024-07-02T15:25:24.987+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.customer_id.failed_rows[duplicate_count]:
+[2024-07-02T15:25:24.987+0000] {process_utils.py:190} INFO - 
+[2024-07-02T15:25:24.987+0000] {process_utils.py:190} INFO - WITH frequencies AS (
+[2024-07-02T15:25:24.987+0000] {process_utils.py:190} INFO -     SELECT customer_id
+[2024-07-02T15:25:24.987+0000] {process_utils.py:190} INFO -     FROM public.dim_customer
+[2024-07-02T15:25:24.988+0000] {process_utils.py:190} INFO -     WHERE customer_id IS NOT NULL
+[2024-07-02T15:25:24.988+0000] {process_utils.py:190} INFO -     GROUP BY customer_id
+[2024-07-02T15:25:24.988+0000] {process_utils.py:190} INFO -     HAVING count(*) > 1)
+[2024-07-02T15:25:24.988+0000] {process_utils.py:190} INFO - SELECT main.*
+[2024-07-02T15:25:24.988+0000] {process_utils.py:190} INFO - FROM public.dim_customer main
+[2024-07-02T15:25:24.989+0000] {process_utils.py:190} INFO - JOIN frequencies ON main.customer_id = frequencies.customer_id
+[2024-07-02T15:25:24.989+0000] {process_utils.py:190} INFO - 
+[2024-07-02T15:25:24.989+0000] {process_utils.py:190} INFO - LIMIT 100
+[2024-07-02T15:25:24.989+0000] {process_utils.py:190} INFO - INFO   | Sending failed row samples to Soda Cloud
+[2024-07-02T15:25:24.990+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.dim_customer.duplicate_count[customer_id].failed_rows.aggregated:
+[2024-07-02T15:25:24.990+0000] {process_utils.py:190} INFO - 
+[2024-07-02T15:25:24.990+0000] {process_utils.py:190} INFO - WITH frequencies AS (
+[2024-07-02T15:25:24.990+0000] {process_utils.py:190} INFO -     SELECT customer_id, COUNT(*) AS frequency
+[2024-07-02T15:25:24.990+0000] {process_utils.py:190} INFO -     FROM public.dim_customer
+[2024-07-02T15:25:24.991+0000] {process_utils.py:190} INFO -     WHERE customer_id IS NOT NULL
+[2024-07-02T15:25:24.991+0000] {process_utils.py:190} INFO -     GROUP BY customer_id)
+[2024-07-02T15:25:24.991+0000] {process_utils.py:190} INFO - SELECT *
+[2024-07-02T15:25:24.991+0000] {process_utils.py:190} INFO - FROM frequencies
+[2024-07-02T15:25:24.991+0000] {process_utils.py:190} INFO - WHERE frequency > 1
+[2024-07-02T15:25:24.992+0000] {process_utils.py:190} INFO - ORDER BY frequency DESC
+[2024-07-02T15:25:24.992+0000] {process_utils.py:190} INFO - LIMIT 100
+[2024-07-02T15:25:24.992+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.dim_product.aggregation[0]:
+[2024-07-02T15:25:24.992+0000] {process_utils.py:190} INFO - SELECT
+[2024-07-02T15:25:24.992+0000] {process_utils.py:190} INFO -   COUNT(CASE WHEN product_id IS NULL THEN 1 END),
+[2024-07-02T15:25:24.993+0000] {process_utils.py:190} INFO -   MIN(price)
+[2024-07-02T15:25:24.993+0000] {process_utils.py:190} INFO - FROM public.dim_product
+[2024-07-02T15:25:24.993+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.dim_product.product_id.duplicate_count:
+[2024-07-02T15:25:24.993+0000] {process_utils.py:190} INFO - 
+[2024-07-02T15:25:24.993+0000] {process_utils.py:190} INFO - WITH frequencies AS (
+[2024-07-02T15:25:24.994+0000] {process_utils.py:190} INFO -     SELECT COUNT(*) AS frequency
+[2024-07-02T15:25:24.994+0000] {process_utils.py:190} INFO -     FROM public.dim_product
+[2024-07-02T15:25:24.994+0000] {process_utils.py:190} INFO -     WHERE product_id IS NOT NULL
+[2024-07-02T15:25:24.994+0000] {process_utils.py:190} INFO -     GROUP BY product_id)
+[2024-07-02T15:25:24.994+0000] {process_utils.py:190} INFO - SELECT count(*)
+[2024-07-02T15:25:24.995+0000] {process_utils.py:190} INFO - FROM frequencies
+[2024-07-02T15:25:24.995+0000] {process_utils.py:190} INFO - WHERE frequency > 1
+[2024-07-02T15:25:24.995+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.dim_product.duplicate_count[product_id].failed_rows.aggregated:
+[2024-07-02T15:25:24.995+0000] {process_utils.py:190} INFO - 
+[2024-07-02T15:25:24.995+0000] {process_utils.py:190} INFO - WITH frequencies AS (
+[2024-07-02T15:25:24.996+0000] {process_utils.py:190} INFO -     SELECT product_id, COUNT(*) AS frequency
+[2024-07-02T15:25:24.996+0000] {process_utils.py:190} INFO -     FROM public.dim_product
+[2024-07-02T15:25:24.996+0000] {process_utils.py:190} INFO -     WHERE product_id IS NOT NULL
+[2024-07-02T15:25:24.996+0000] {process_utils.py:190} INFO -     GROUP BY product_id)
+[2024-07-02T15:25:24.996+0000] {process_utils.py:190} INFO - SELECT *
+[2024-07-02T15:25:24.997+0000] {process_utils.py:190} INFO - FROM frequencies
+[2024-07-02T15:25:24.997+0000] {process_utils.py:190} INFO - WHERE frequency > 1
+[2024-07-02T15:25:24.997+0000] {process_utils.py:190} INFO - ORDER BY frequency DESC
+[2024-07-02T15:25:24.997+0000] {process_utils.py:190} INFO - LIMIT 100
+[2024-07-02T15:25:24.997+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.dim_datetime.aggregation[0]:
+[2024-07-02T15:25:24.998+0000] {process_utils.py:190} INFO - SELECT
+[2024-07-02T15:25:24.998+0000] {process_utils.py:190} INFO -   COUNT(CASE WHEN NOT (weekday IS NULL) AND NOT (weekday >= 0.0 AND weekday <= 6.0) THEN 1 END),
+[2024-07-02T15:25:24.998+0000] {process_utils.py:190} INFO -   COUNT(CASE WHEN datetime_id IS NULL THEN 1 END)
+[2024-07-02T15:25:24.998+0000] {process_utils.py:190} INFO - FROM public.dim_datetime
+[2024-07-02T15:25:24.998+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.dim_datetime.datetime_id.duplicate_count:
+[2024-07-02T15:25:24.999+0000] {process_utils.py:190} INFO - 
+[2024-07-02T15:25:24.999+0000] {process_utils.py:190} INFO - WITH frequencies AS (
+[2024-07-02T15:25:24.999+0000] {process_utils.py:190} INFO -     SELECT COUNT(*) AS frequency
+[2024-07-02T15:25:24.999+0000] {process_utils.py:190} INFO -     FROM public.dim_datetime
+[2024-07-02T15:25:24.999+0000] {process_utils.py:190} INFO -     WHERE datetime_id IS NOT NULL
+[2024-07-02T15:25:25.000+0000] {process_utils.py:190} INFO -     GROUP BY datetime_id)
+[2024-07-02T15:25:25.000+0000] {process_utils.py:190} INFO - SELECT count(*)
+[2024-07-02T15:25:25.000+0000] {process_utils.py:190} INFO - FROM frequencies
+[2024-07-02T15:25:25.000+0000] {process_utils.py:190} INFO - WHERE frequency > 1
+[2024-07-02T15:25:25.000+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.dim_datetime.duplicate_count[datetime_id].failed_rows.aggregated:
+[2024-07-02T15:25:25.001+0000] {process_utils.py:190} INFO - 
+[2024-07-02T15:25:25.001+0000] {process_utils.py:190} INFO - WITH frequencies AS (
+[2024-07-02T15:25:25.001+0000] {process_utils.py:190} INFO -     SELECT datetime_id, COUNT(*) AS frequency
+[2024-07-02T15:25:25.001+0000] {process_utils.py:190} INFO -     FROM public.dim_datetime
+[2024-07-02T15:25:25.001+0000] {process_utils.py:190} INFO -     WHERE datetime_id IS NOT NULL
+[2024-07-02T15:25:25.001+0000] {process_utils.py:190} INFO -     GROUP BY datetime_id)
+[2024-07-02T15:25:25.002+0000] {process_utils.py:190} INFO - SELECT *
+[2024-07-02T15:25:25.002+0000] {process_utils.py:190} INFO - FROM frequencies
+[2024-07-02T15:25:25.002+0000] {process_utils.py:190} INFO - WHERE frequency > 1
+[2024-07-02T15:25:25.002+0000] {process_utils.py:190} INFO - ORDER BY frequency DESC
+[2024-07-02T15:25:25.002+0000] {process_utils.py:190} INFO - LIMIT 100
+[2024-07-02T15:25:25.003+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.fct_invoices.schema[fct_invoices]:
+[2024-07-02T15:25:25.003+0000] {process_utils.py:190} INFO - SELECT column_name, data_type, is_nullable
+[2024-07-02T15:25:25.003+0000] {process_utils.py:190} INFO - FROM information_schema.columns
+[2024-07-02T15:25:25.003+0000] {process_utils.py:190} INFO - WHERE lower(table_name) = 'fct_invoices'
+[2024-07-02T15:25:25.003+0000] {process_utils.py:190} INFO -   AND lower(table_catalog) = '***'
+[2024-07-02T15:25:25.004+0000] {process_utils.py:190} INFO -   AND lower(table_schema) = 'public'
+[2024-07-02T15:25:25.004+0000] {process_utils.py:190} INFO - ORDER BY ORDINAL_POSITION
+[2024-07-02T15:25:25.004+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.failed_rows[failed rows]:
+[2024-07-02T15:25:25.004+0000] {process_utils.py:190} INFO - SELECT invoice_id, total
+[2024-07-02T15:25:25.004+0000] {process_utils.py:190} INFO - FROM fct_invoices
+[2024-07-02T15:25:25.005+0000] {process_utils.py:190} INFO - WHERE total < 0
+[2024-07-02T15:25:25.005+0000] {process_utils.py:190} INFO - INFO   | Sending failed row samples to Soda Cloud
+[2024-07-02T15:25:25.005+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.dim_customer.schema[dim_customer]:
+[2024-07-02T15:25:25.005+0000] {process_utils.py:190} INFO - SELECT column_name, data_type, is_nullable
+[2024-07-02T15:25:25.005+0000] {process_utils.py:190} INFO - FROM information_schema.columns
+[2024-07-02T15:25:25.006+0000] {process_utils.py:190} INFO - WHERE lower(table_name) = 'dim_customer'
+[2024-07-02T15:25:25.006+0000] {process_utils.py:190} INFO -   AND lower(table_catalog) = '***'
+[2024-07-02T15:25:25.006+0000] {process_utils.py:190} INFO -   AND lower(table_schema) = 'public'
+[2024-07-02T15:25:25.006+0000] {process_utils.py:190} INFO - ORDER BY ORDINAL_POSITION
+[2024-07-02T15:25:25.006+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.dim_product.schema[dim_product]:
+[2024-07-02T15:25:25.007+0000] {process_utils.py:190} INFO - SELECT column_name, data_type, is_nullable
+[2024-07-02T15:25:25.007+0000] {process_utils.py:190} INFO - FROM information_schema.columns
+[2024-07-02T15:25:25.007+0000] {process_utils.py:190} INFO - WHERE lower(table_name) = 'dim_product'
+[2024-07-02T15:25:25.007+0000] {process_utils.py:190} INFO -   AND lower(table_catalog) = '***'
+[2024-07-02T15:25:25.007+0000] {process_utils.py:190} INFO -   AND lower(table_schema) = 'public'
+[2024-07-02T15:25:25.008+0000] {process_utils.py:190} INFO - ORDER BY ORDINAL_POSITION
+[2024-07-02T15:25:25.008+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.dim_datetime.schema[dim_datetime]:
+[2024-07-02T15:25:25.008+0000] {process_utils.py:190} INFO - SELECT column_name, data_type, is_nullable
+[2024-07-02T15:25:25.008+0000] {process_utils.py:190} INFO - FROM information_schema.columns
+[2024-07-02T15:25:25.009+0000] {process_utils.py:190} INFO - WHERE lower(table_name) = 'dim_datetime'
+[2024-07-02T15:25:25.009+0000] {process_utils.py:190} INFO -   AND lower(table_catalog) = '***'
+[2024-07-02T15:25:25.009+0000] {process_utils.py:190} INFO -   AND lower(table_schema) = 'public'
+[2024-07-02T15:25:25.009+0000] {process_utils.py:190} INFO - ORDER BY ORDINAL_POSITION
+[2024-07-02T15:25:25.009+0000] {process_utils.py:190} INFO - INFO   | Scan summary:
+[2024-07-02T15:25:25.010+0000] {process_utils.py:190} INFO - DEBUG  | 16/16 queries OK
+[2024-07-02T15:25:25.010+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.fct_invoices.aggregation[0] [OK] 0:00:00.176273
+[2024-07-02T15:25:25.010+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.dim_customer.aggregation[0] [OK] 0:00:00.002058
+[2024-07-02T15:25:25.010+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.dim_customer.customer_id.duplicate_count [OK] 0:00:00.005906
+[2024-07-02T15:25:25.011+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.customer_id.failed_rows[duplicate_count] [OK] 0:00:00.862606
+[2024-07-02T15:25:25.011+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.dim_customer.duplicate_count[customer_id].failed_rows.aggregated [OK] 0:00:00.006028
+[2024-07-02T15:25:25.011+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.dim_product.aggregation[0] [OK] 0:00:00.002728
+[2024-07-02T15:25:25.011+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.dim_product.product_id.duplicate_count [OK] 0:00:00.008959
+[2024-07-02T15:25:25.012+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.dim_product.duplicate_count[product_id].failed_rows.aggregated [OK] 0:00:00.007650
+[2024-07-02T15:25:25.012+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.dim_datetime.aggregation[0] [OK] 0:00:00.003544
+[2024-07-02T15:25:25.012+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.dim_datetime.datetime_id.duplicate_count [OK] 0:00:00.010065
+[2024-07-02T15:25:25.012+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.dim_datetime.duplicate_count[datetime_id].failed_rows.aggregated [OK] 0:00:00.010067
+[2024-07-02T15:25:25.012+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.fct_invoices.schema[fct_invoices] [OK] 0:00:00.006538
+[2024-07-02T15:25:25.012+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.failed_rows[failed rows] [OK] 0:00:00.285602
+[2024-07-02T15:25:25.013+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.dim_customer.schema[dim_customer] [OK] 0:00:00.004082
+[2024-07-02T15:25:25.013+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.dim_product.schema[dim_product] [OK] 0:00:00.003703
+[2024-07-02T15:25:25.013+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.dim_datetime.schema[dim_datetime] [OK] 0:00:00.003586
+[2024-07-02T15:25:25.013+0000] {process_utils.py:190} INFO - INFO   | 13/14 checks PASSED:
+[2024-07-02T15:25:25.013+0000] {process_utils.py:190} INFO - INFO   |     fct_invoices in bdpostgres
+[2024-07-02T15:25:25.013+0000] {process_utils.py:190} INFO - INFO   |       Schema Check [/opt/***/dossier/soda/checks/transform/fct_invoices.yml] [PASSED]
+[2024-07-02T15:25:25.013+0000] {process_utils.py:190} INFO - INFO   |         schema_measured = [invoice_id text, datetime_id timestamp without time zone, product_id text, customer_id text, quantity integer, total double precision]
+[2024-07-02T15:25:25.014+0000] {process_utils.py:190} INFO - INFO   |       All invoices have a positive total amount [/opt/***/dossier/soda/checks/transform/fct_invoices.yml] [PASSED]
+[2024-07-02T15:25:25.014+0000] {process_utils.py:190} INFO - INFO   |         value: 0
+[2024-07-02T15:25:25.014+0000] {process_utils.py:190} INFO - INFO   |       All invoices have a key [/opt/***/dossier/soda/checks/transform/fct_invoices.yml] [PASSED]
+[2024-07-02T15:25:25.014+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-02T15:25:25.014+0000] {process_utils.py:190} INFO - INFO   |     dim_customer in bdpostgres
+[2024-07-02T15:25:25.014+0000] {process_utils.py:190} INFO - INFO   |       Schema Check [/opt/***/dossier/soda/checks/transform/dim_customer.yml] [PASSED]
+[2024-07-02T15:25:25.015+0000] {process_utils.py:190} INFO - INFO   |         schema_measured = [customer_id text, country text, iso character varying]
+[2024-07-02T15:25:25.015+0000] {process_utils.py:190} INFO - INFO   |       All customers have a key [/opt/***/dossier/soda/checks/transform/dim_customer.yml] [PASSED]
+[2024-07-02T15:25:25.015+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-02T15:25:25.015+0000] {process_utils.py:190} INFO - INFO   |     dim_product in bdpostgres
+[2024-07-02T15:25:25.015+0000] {process_utils.py:190} INFO - INFO   |       Schema Check [/opt/***/dossier/soda/checks/transform/dim_product.yml] [PASSED]
+[2024-07-02T15:25:25.015+0000] {process_utils.py:190} INFO - INFO   |         schema_measured = [product_id text, stock_code text, description text, price real]
+[2024-07-02T15:25:25.016+0000] {process_utils.py:190} INFO - INFO   |       All products are unique [/opt/***/dossier/soda/checks/transform/dim_product.yml] [PASSED]
+[2024-07-02T15:25:25.016+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-02T15:25:25.016+0000] {process_utils.py:190} INFO - INFO   |       All products have a key [/opt/***/dossier/soda/checks/transform/dim_product.yml] [PASSED]
+[2024-07-02T15:25:25.016+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-02T15:25:25.016+0000] {process_utils.py:190} INFO - INFO   |       min(price) fail when < 0 [/opt/***/dossier/soda/checks/transform/dim_product.yml] [PASSED]
+[2024-07-02T15:25:25.016+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0.001
+[2024-07-02T15:25:25.017+0000] {process_utils.py:190} INFO - INFO   |     dim_datetime in bdpostgres
+[2024-07-02T15:25:25.017+0000] {process_utils.py:190} INFO - INFO   |       Schema Check [/opt/***/dossier/soda/checks/transform/dim_datetime.yml] [PASSED]
+[2024-07-02T15:25:25.017+0000] {process_utils.py:190} INFO - INFO   |         schema_measured = [datetime_id timestamp without time zone, datetime timestamp with time zone, year double precision, month double precision, day double precision, hour double precision, minute double precision, weekday double precision]
+[2024-07-02T15:25:25.017+0000] {process_utils.py:190} INFO - INFO   |       All weekdays are in range 0-6 [/opt/***/dossier/soda/checks/transform/dim_datetime.yml] [PASSED]
+[2024-07-02T15:25:25.017+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-02T15:25:25.018+0000] {process_utils.py:190} INFO - INFO   |       All datetimes are unique [/opt/***/dossier/soda/checks/transform/dim_datetime.yml] [PASSED]
+[2024-07-02T15:25:25.018+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-02T15:25:25.018+0000] {process_utils.py:190} INFO - INFO   |       All datetimes have a key [/opt/***/dossier/soda/checks/transform/dim_datetime.yml] [PASSED]
+[2024-07-02T15:25:25.018+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-02T15:25:25.018+0000] {process_utils.py:190} INFO - INFO   | 1/14 checks FAILED:
+[2024-07-02T15:25:25.018+0000] {process_utils.py:190} INFO - INFO   |     dim_customer in bdpostgres
+[2024-07-02T15:25:25.019+0000] {process_utils.py:190} INFO - INFO   |       All customers are unique [/opt/***/dossier/soda/checks/transform/dim_customer.yml] [FAILED]
+[2024-07-02T15:25:25.019+0000] {process_utils.py:190} INFO - INFO   |         check_value: 4358
+[2024-07-02T15:25:25.019+0000] {process_utils.py:190} INFO - INFO   | Oops! 1 failures. 0 warnings. 0 errors. 13 pass.
+[2024-07-02T15:25:25.019+0000] {process_utils.py:190} INFO - INFO   | Sending results to Soda Cloud
+[2024-07-02T15:25:25.019+0000] {process_utils.py:190} INFO - INFO   | Soda Cloud Trace: 1765985665518851934
+[2024-07-02T15:25:25.019+0000] {process_utils.py:190} INFO - Traceback (most recent call last):
+[2024-07-02T15:25:25.019+0000] {process_utils.py:190} INFO -   File "/tmp/venv-call3ggps8ye/script.py", line 33, in <module>
+[2024-07-02T15:25:25.020+0000] {process_utils.py:190} INFO -     res = check_transform(*arg_dict["args"], **arg_dict["kwargs"])
+[2024-07-02T15:25:25.020+0000] {process_utils.py:190} INFO -   File "/tmp/venv-call3ggps8ye/script.py", line 30, in check_transform
+[2024-07-02T15:25:25.020+0000] {process_utils.py:190} INFO -     a = run_soda_scan(project_root = PROJECT_ROOT, scan_name ="checks_transform", checks_subpath="transform")
+[2024-07-02T15:25:25.020+0000] {process_utils.py:190} INFO -   File "/opt/***/dossier/soda/checks/fonction.py", line 24, in run_soda_scan
+[2024-07-02T15:25:25.020+0000] {process_utils.py:190} INFO -     raise ValueError('Soda Scan failed')
+[2024-07-02T15:25:25.020+0000] {process_utils.py:190} INFO - ValueError: Soda Scan failed
+[2024-07-02T15:25:25.111+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 242, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 400, in execute
+    return super().execute(context=serializable_context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 851, in execute_callable
+    return self._execute_python_callable_in_subprocess(python_path)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 471, in _execute_python_callable_in_subprocess
+    raise AirflowException(error_msg) from None
+airflow.exceptions.AirflowException: Process returned non-zero exit status 1.
+Soda Scan failed
+[2024-07-02T15:25:25.117+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=pipeline, task_id=check_transform, execution_date=20240702T152432, start_date=20240702T152518, end_date=20240702T152525
+[2024-07-02T15:25:25.132+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 22 for task check_transform (Process returned non-zero exit status 1.
+Soda Scan failed; 1147)
+[2024-07-02T15:25:25.151+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-07-02T15:25:25.169+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

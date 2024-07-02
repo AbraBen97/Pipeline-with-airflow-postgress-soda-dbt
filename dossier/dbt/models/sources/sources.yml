@@ -1,0 +1,9 @@
+version: 2
+sources:
+  - name: airflow
+    database: airflow
+
+    tables:
+      - name: products
+      - name: country
+      

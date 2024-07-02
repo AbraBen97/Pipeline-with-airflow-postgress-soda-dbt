@@ -1,0 +1,40 @@
+[2024-07-02T15:42:53.895+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline.check_load manual__2024-07-02T15:42:47.623707+00:00 [queued]>
+[2024-07-02T15:42:53.904+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline.check_load manual__2024-07-02T15:42:47.623707+00:00 [queued]>
+[2024-07-02T15:42:53.904+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-07-02T15:42:53.920+0000] {taskinstance.py:2192} INFO - Executing <Task(_PythonExternalDecoratedOperator): check_load> on 2024-07-02 15:42:47.623707+00:00
+[2024-07-02T15:42:53.926+0000] {standard_task_runner.py:60} INFO - Started process 1495 to run task
+[2024-07-02T15:42:53.929+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pipeline', 'check_load', 'manual__2024-07-02T15:42:47.623707+00:00', '--job-id', '34', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpfsx9tb9z']
+[2024-07-02T15:42:53.931+0000] {standard_task_runner.py:88} INFO - Job 34: Subtask check_load
+[2024-07-02T15:42:53.974+0000] {task_command.py:423} INFO - Running <TaskInstance: pipeline.check_load manual__2024-07-02T15:42:47.623707+00:00 [running]> on host e21b7712e0d7
+[2024-07-02T15:42:54.050+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pipeline' AIRFLOW_CTX_TASK_ID='check_load' AIRFLOW_CTX_EXECUTION_DATE='2024-07-02T15:42:47.623707+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-02T15:42:47.623707+00:00'
+[2024-07-02T15:42:54.088+0000] {python.py:903} WARNING - When checking for Airflow installed in virtual environment got Command '['/opt/airflow/soda_venv/bin/python', '-c', 'from airflow import __version__; print(__version__)']' returned non-zero exit status 1.
+[2024-07-02T15:42:54.089+0000] {python.py:904} WARNING - This means that Airflow is not properly installed by  /opt/***/soda_venv/bin/python. Airflow context keys will not be available. Please Install Airflow 2.8.0 in your environment to access them.
+[2024-07-02T15:42:54.292+0000] {process_utils.py:182} INFO - Executing cmd: /opt/***/soda_venv/bin/python /tmp/venv-callp3rure5n/script.py /tmp/venv-callp3rure5n/script.in /tmp/venv-callp3rure5n/script.out /tmp/venv-callp3rure5n/string_args.txt /tmp/venv-callp3rure5n/termination.log
+[2024-07-02T15:42:54.304+0000] {process_utils.py:186} INFO - Output:
+[2024-07-02T15:42:57.323+0000] {process_utils.py:190} INFO - Running Soda Scan ...
+[2024-07-02T15:42:57.323+0000] {process_utils.py:190} INFO - INFO   | Soda Core 3.0.45
+[2024-07-02T15:42:57.323+0000] {process_utils.py:190} INFO - DEBUG  | Reading configuration file "/opt/***/dossier/soda/configuration/configuration.yml"
+[2024-07-02T15:42:57.324+0000] {process_utils.py:190} INFO - DEBUG  | Reading SodaCL file "/opt/***/dossier/soda/checks//premier_checks.yml"
+[2024-07-02T15:42:57.324+0000] {process_utils.py:190} INFO - DEBUG  | Scan execution starts
+[2024-07-02T15:42:57.324+0000] {process_utils.py:190} INFO - DEBUG  | Postgres connection properties: host="postgres", port="None", database="***", user="***", options="-c search_path=public", connection_timeout="None"
+[2024-07-02T15:42:57.325+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.products.schema[products]:
+[2024-07-02T15:42:57.325+0000] {process_utils.py:190} INFO - SELECT column_name, data_type, is_nullable
+[2024-07-02T15:42:57.325+0000] {process_utils.py:190} INFO - FROM information_schema.columns
+[2024-07-02T15:42:57.325+0000] {process_utils.py:190} INFO - WHERE lower(table_name) = 'products'
+[2024-07-02T15:42:57.325+0000] {process_utils.py:190} INFO -   AND lower(table_catalog) = '***'
+[2024-07-02T15:42:57.326+0000] {process_utils.py:190} INFO -   AND lower(table_schema) = 'public'
+[2024-07-02T15:42:57.326+0000] {process_utils.py:190} INFO - ORDER BY ORDINAL_POSITION
+[2024-07-02T15:42:57.326+0000] {process_utils.py:190} INFO - INFO   | Scan summary:
+[2024-07-02T15:42:57.326+0000] {process_utils.py:190} INFO - DEBUG  | 1/1 query OK
+[2024-07-02T15:42:57.326+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.products.schema[products] [OK] 0:00:00.008526
+[2024-07-02T15:42:57.327+0000] {process_utils.py:190} INFO - INFO   | 1/1 check PASSED:
+[2024-07-02T15:42:57.327+0000] {process_utils.py:190} INFO - INFO   |     products in bdpostgres
+[2024-07-02T15:42:57.327+0000] {process_utils.py:190} INFO - INFO   |       Schema Check [/opt/***/dossier/soda/checks//premier_checks.yml] [PASSED]
+[2024-07-02T15:42:57.327+0000] {process_utils.py:190} INFO - INFO   |         schema_measured = [invoiceno text, stockcode text, description text, quantity integer, invoicedate timestamp without time zone, unitprice real, customerid real, country text]
+[2024-07-02T15:42:57.328+0000] {process_utils.py:190} INFO - INFO   | All is good. No failures. No warnings. No errors.
+[2024-07-02T15:42:57.328+0000] {process_utils.py:190} INFO - INFO   | Sending results to Soda Cloud
+[2024-07-02T15:42:57.328+0000] {process_utils.py:190} INFO - INFO   | Soda Cloud Trace: 6237381272071311038
+[2024-07-02T15:42:57.384+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-07-02T15:42:57.396+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=pipeline, task_id=check_load, execution_date=20240702T154247, start_date=20240702T154253, end_date=20240702T154257
+[2024-07-02T15:42:57.432+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-07-02T15:42:57.478+0000] {taskinstance.py:3281} INFO - 1 downstream tasks scheduled from follow-on schedule check

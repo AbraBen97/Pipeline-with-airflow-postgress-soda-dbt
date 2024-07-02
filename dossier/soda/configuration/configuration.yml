@@ -1,0 +1,13 @@
+data_source bdpostgres:
+  type: postgres
+  host: postgres
+  username: airflow
+  password: airflow
+  database: airflow
+  schema: public 
+soda_cloud:
+# Use cloud.soda.io for EU region
+# Use cloud.us.soda.io for US region
+  host: cloud.soda.io
+  api_key_id: YOUR API KEY ID
+  api_key_secret: YOUR API KEY

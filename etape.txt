@@ -1,0 +1,65 @@
+https://crontab.guru/
+
+Ce projet consiste a mettre en place une pipeline airflow avec les etapes suivantes:
+    1 - chargement d'un ficher Csv dans la base de donnees postgress de airflow
+    2 - Verifier la qualite des donnees avec soda
+    3 - utiliser DBT pour cree des dimensions avec la base de donnees 
+    4 - verifier a nouveau avec soda
+    5 - cree d'autres dimensions avec les dimensions cree
+    6 - verifier a nouveau avec soda
+
+
+Etape 1 : creation de la table et chargement des donnees 
+     - Cree un dossier sur votre ordinateur et ajouter le ficher docker-compose
+     - Le ficher docker compose a ete modifier avec l'ajout d'un nouveau dossier nommee dossier
+     - cree un .env et ajouter AIRFLOW_UID=1000
+     - Lancer votre pipeline avec la commande docker compose up -d
+     - si tout fonction correctement, dans dossier, cree un dossier nommee data et ajouter votre ficher Csv
+     - CRee une connection a la base de donnees dans l'interface graphique
+     - cree votre premier dag avec la tache de creation de la base de donnees et de chargement des data
+     - Executer votre dag la premiere fois pour verifier que tout fonctionne
+
+Etape 2 : qualite des donnees de la base de donnees avec soda
+    Pour verifier la qualite de vos donnees vous devez insataller soda dans votre environement, une methode simple est de cree un environement virtuel
+    dans votre airflow pour installer soda, 
+     - Ajouter donc un Dockerfile avec pour image de base votre airflow
+     - ajouter les commande de creation de l'environement virtuel et d'installation de soda   
+     - builder l'image 'docker build -t mon_image .'
+     - et ajouter la nouvelle image dans votre docker compose 
+     - ajouter dans votre .env ' AIRFLOW_IMAGE_NAME=mon_image'
+     - relancer votre docker compose et cree a nouveau la connection 
+     - acceder a votre scheduller pour verifier la presence de l'environement virtuel 'docker exec -it version2-airflow-scheduler-1 bash' puis 'ls'
+     - Dans dossier, cree un nouveau soda, dans soda cree un dossier configutation puis ajouter le ficher configutation.yml. ce ficher contient les parametre de connection a la base de donnees
+     - teste connection : acceder a votre scheduller , activer l'environement virtuel 'source soda_venv/bin/activate' et taper la commande 'soda test-connection -d bdpostgres -c /opt/airflow/dossier/soda/configuration/configuration.yml'
+     - dans le dossier soda, cree un dossier checks, et ajouter le ficher premier_cheks.yml. il contient la premier verification sur les donnees
+     - dans ce ficher products est la table sur laquel je fait les verifications, je peux cree differents fichers.yml qui seront des checks pour differents tables
+     - verifier la qualite avec 'soda scan -d bdpostgres -c /opt/airflow/dossier/soda/configuration/configuration.yml /opt/airflow/dossier/soda/checks/premier_checks.yml' dans votre scheduller apres avoir activer l'environement virtuel
+     - ajouter la tache externe de verification check_load  avec votre dag
+
+Etape 3 : creation de dimensions avec dbt
+    Pour utiliser dbt, cree a nouveau un environement virtuel et y  installer soda, pour cela, supprimer votre image cree precedement.
+    ajouter la 3 eme partie du Dockerfile et cree une nouvelle image 
+    - dans dossier, cree un ficher dbt
+    - a l'interieur du dossier dbt, cree les ficher profiles.yml, dbt_project.yml, packages.yml, 
+    - cree ensuite un dossier models dans dbt, puis un dossier sources a l'interieur de models,dans sources, on cree un ficher sources.yml  
+    - cree le ficher country.yml dans dag et ajouter la tache create_table_country
+    - cree dans dbt/models un dossier transform et cree les 4 dimensions dans transform qui y sont
+    - acceder au shedduleur, activer l'environement dbt_env 'source dbt_env/bin/activate' ; acceder au dossier /opt/airflow/dossier/dbt et taper 'dbt deps' pour installer les packages
+    - si vous avez deja executer le dag et que les tables ont ete cree, taper la commandes 'dbt run --profiles-dir .'
+    - dans le dossier /dbt, cree le ficher 'cosmos_config.py'
+    - dans le dag, on ajoute la tache transform
+
+Etape 4 : teste de qualite de toutes les dimensions cree avec soda
+    - on retourne dans le dossier soda, dans le dossier cheks, on cree un dossier transform a l'interrieur on copie les verification a effectuer sur chaques dimensions cree 
+    - on retourne dans le dag et on ajoute la nouvelle tache de verification 
+
+Etape 5 : creation de nouvelles tables
+    - on retourne dans le dossier dbt,et on cree un dossier report dans models
+    - on ajoute les trois fichers .sql de creation
+    - dans le dag on ajoute la nouvelle tache de creation report
+
+Etape 6 : 
+    - Dans soda, dans le dossier check, on cree un nouveau dossier report, 
+    - dans ajoute dans report les 3 ficher yml de verification
+    - on ajoute une nouvelle tache de verification dans le dag 'check_report'
+    

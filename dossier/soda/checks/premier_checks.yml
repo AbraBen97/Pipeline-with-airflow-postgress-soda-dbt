@@ -1,0 +1,14 @@
+checks for products:   #products est la table sur laquel je fait les verifications, je peux cree differents fichers.yml qui seront des checks pour differents tables
+  - schema:
+      fail:
+        when required column missing: [invoiceno, stockcode,description, quantity, invoicedate, unitprice, customerid, country]
+        when wrong column type:
+
+          invoiceno: TEXT
+          stockcode: TEXT
+          description: TEXT
+          quantity: integer
+          invoicedate: TIMESTAMP
+          unitprice: REAL
+          customerid: REAL
+          country: TEXT

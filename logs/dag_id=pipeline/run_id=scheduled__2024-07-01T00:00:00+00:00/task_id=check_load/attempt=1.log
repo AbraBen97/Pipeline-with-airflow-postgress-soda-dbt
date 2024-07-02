@@ -1,0 +1,137 @@
+[2024-07-02T12:35:37.508+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline.check_load scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-07-02T12:35:37.516+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline.check_load scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-07-02T12:35:37.516+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-07-02T12:35:37.532+0000] {taskinstance.py:2192} INFO - Executing <Task(_PythonExternalDecoratedOperator): check_load> on 2024-07-01 00:00:00+00:00
+[2024-07-02T12:35:37.540+0000] {standard_task_runner.py:60} INFO - Started process 559 to run task
+[2024-07-02T12:35:37.543+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pipeline', 'check_load', 'scheduled__2024-07-01T00:00:00+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpeyefeg8n']
+[2024-07-02T12:35:37.545+0000] {standard_task_runner.py:88} INFO - Job 7: Subtask check_load
+[2024-07-02T12:35:37.589+0000] {task_command.py:423} INFO - Running <TaskInstance: pipeline.check_load scheduled__2024-07-01T00:00:00+00:00 [running]> on host 11fbd99a881f
+[2024-07-02T12:35:37.666+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pipeline' AIRFLOW_CTX_TASK_ID='check_load' AIRFLOW_CTX_EXECUTION_DATE='2024-07-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-01T00:00:00+00:00'
+[2024-07-02T12:35:37.705+0000] {python.py:903} WARNING - When checking for Airflow installed in virtual environment got Command '['/opt/airflow/soda_venv/bin/python', '-c', 'from airflow import __version__; print(__version__)']' returned non-zero exit status 1.
+[2024-07-02T12:35:37.707+0000] {python.py:904} WARNING - This means that Airflow is not properly installed by  /opt/***/soda_venv/bin/python. Airflow context keys will not be available. Please Install Airflow 2.8.0 in your environment to access them.
+[2024-07-02T12:35:37.941+0000] {process_utils.py:182} INFO - Executing cmd: /opt/***/soda_venv/bin/python /tmp/venv-cally1njmfs9/script.py /tmp/venv-cally1njmfs9/script.in /tmp/venv-cally1njmfs9/script.out /tmp/venv-cally1njmfs9/string_args.txt /tmp/venv-cally1njmfs9/termination.log
+[2024-07-02T12:35:37.951+0000] {process_utils.py:186} INFO - Output:
+[2024-07-02T12:35:40.231+0000] {process_utils.py:190} INFO - [12:35:40] Data source 'my_datasource' not present in the configuration. Configured data sources: bdpostgres
+[2024-07-02T12:35:40.232+0000] {process_utils.py:190} INFO - [12:35:40] No valid checks found, 0 checks evaluated.
+[2024-07-02T12:35:40.232+0000] {process_utils.py:190} INFO - [12:35:40] Data source 'my_datasource' not present in the configuration. Configured data sources: bdpostgres
+[2024-07-02T12:35:40.994+0000] {process_utils.py:190} INFO - Running Soda Scan ...
+[2024-07-02T12:35:40.995+0000] {process_utils.py:190} INFO - INFO   | Soda Core 3.0.45
+[2024-07-02T12:35:40.995+0000] {process_utils.py:190} INFO - DEBUG  | Reading configuration file "/opt/***/dossier/soda/configuration/configuration.yml"
+[2024-07-02T12:35:40.996+0000] {process_utils.py:190} INFO - DEBUG  | Reading SodaCL file "/opt/***/dossier/soda/checks//premier_checks.yml"
+[2024-07-02T12:35:40.997+0000] {process_utils.py:190} INFO - DEBUG  | Scan execution starts
+[2024-07-02T12:35:40.998+0000] {process_utils.py:190} INFO - ERROR  | Data source 'my_datasource' not present in the configuration. Configured data sources: bdpostgres
+[2024-07-02T12:35:40.998+0000] {process_utils.py:190} INFO - INFO   | Scan summary:
+[2024-07-02T12:35:40.998+0000] {process_utils.py:190} INFO - WARNING| No valid checks found, 0 checks evaluated.
+[2024-07-02T12:35:40.999+0000] {process_utils.py:190} INFO - INFO   | 1 errors.
+[2024-07-02T12:35:40.999+0000] {process_utils.py:190} INFO - INFO   | Oops! 1 error. 0 failures. 0 warnings. 0 pass.
+[2024-07-02T12:35:41.000+0000] {process_utils.py:190} INFO - INFO   | Sending results to Soda Cloud
+[2024-07-02T12:35:41.000+0000] {process_utils.py:190} INFO - INFO   | Soda Cloud Trace: 6629106157451402380
+[2024-07-02T12:35:41.000+0000] {process_utils.py:190} INFO - Traceback (most recent call last):
+[2024-07-02T12:35:41.001+0000] {process_utils.py:190} INFO -   File "/tmp/venv-cally1njmfs9/script.py", line 33, in <module>
+[2024-07-02T12:35:41.001+0000] {process_utils.py:190} INFO -     res = check_load(*arg_dict["args"], **arg_dict["kwargs"])
+[2024-07-02T12:35:41.002+0000] {process_utils.py:190} INFO -   File "/tmp/venv-cally1njmfs9/script.py", line 30, in check_load
+[2024-07-02T12:35:41.002+0000] {process_utils.py:190} INFO -     a = run_soda_scan(project_root = PROJECT_ROOT, scan_name ="checks_ingest", checks_subpath="/premier_checks.yml")
+[2024-07-02T12:35:41.003+0000] {process_utils.py:190} INFO -   File "/opt/***/dossier/soda/checks/fonction.py", line 25, in run_soda_scan
+[2024-07-02T12:35:41.003+0000] {process_utils.py:190} INFO -     raise ValueError('Soda Scan failed')
+[2024-07-02T12:35:41.004+0000] {process_utils.py:190} INFO - ValueError: Soda Scan failed
+[2024-07-02T12:35:41.067+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 242, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 400, in execute
+    return super().execute(context=serializable_context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 851, in execute_callable
+    return self._execute_python_callable_in_subprocess(python_path)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 471, in _execute_python_callable_in_subprocess
+    raise AirflowException(error_msg) from None
+airflow.exceptions.AirflowException: Process returned non-zero exit status 1.
+Soda Scan failed
+[2024-07-02T12:35:41.075+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=pipeline, task_id=check_load, execution_date=20240701T000000, start_date=20240702T123537, end_date=20240702T123541
+[2024-07-02T12:35:41.090+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 7 for task check_load (Process returned non-zero exit status 1.
+Soda Scan failed; 559)
+[2024-07-02T12:35:41.126+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-07-02T12:35:41.161+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-02T14:41:24.724+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline.check_load scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-07-02T14:41:24.735+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline.check_load scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-07-02T14:41:24.735+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-07-02T14:41:24.753+0000] {taskinstance.py:2192} INFO - Executing <Task(_PythonExternalDecoratedOperator): check_load> on 2024-07-01 00:00:00+00:00
+[2024-07-02T14:41:24.762+0000] {standard_task_runner.py:60} INFO - Started process 321 to run task
+[2024-07-02T14:41:24.765+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pipeline', 'check_load', 'scheduled__2024-07-01T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpbpqk40kf']
+[2024-07-02T14:41:24.767+0000] {standard_task_runner.py:88} INFO - Job 5: Subtask check_load
+[2024-07-02T14:41:24.817+0000] {task_command.py:423} INFO - Running <TaskInstance: pipeline.check_load scheduled__2024-07-01T00:00:00+00:00 [running]> on host e21b7712e0d7
+[2024-07-02T14:41:24.919+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pipeline' AIRFLOW_CTX_TASK_ID='check_load' AIRFLOW_CTX_EXECUTION_DATE='2024-07-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-01T00:00:00+00:00'
+[2024-07-02T14:41:24.969+0000] {python.py:903} WARNING - When checking for Airflow installed in virtual environment got Command '['/opt/airflow/soda_venv/bin/python', '-c', 'from airflow import __version__; print(__version__)']' returned non-zero exit status 1.
+[2024-07-02T14:41:24.971+0000] {python.py:904} WARNING - This means that Airflow is not properly installed by  /opt/***/soda_venv/bin/python. Airflow context keys will not be available. Please Install Airflow 2.8.0 in your environment to access them.
+[2024-07-02T14:41:25.283+0000] {process_utils.py:182} INFO - Executing cmd: /opt/***/soda_venv/bin/python /tmp/venv-calleomk2kkj/script.py /tmp/venv-calleomk2kkj/script.in /tmp/venv-calleomk2kkj/script.out /tmp/venv-calleomk2kkj/string_args.txt /tmp/venv-calleomk2kkj/termination.log
+[2024-07-02T14:41:25.300+0000] {process_utils.py:186} INFO - Output:
+[2024-07-02T14:41:29.247+0000] {process_utils.py:190} INFO - Running Soda Scan ...
+[2024-07-02T14:41:29.248+0000] {process_utils.py:190} INFO - INFO   | Soda Core 3.0.45
+[2024-07-02T14:41:29.249+0000] {process_utils.py:190} INFO - DEBUG  | Reading configuration file "/opt/***/dossier/soda/configuration/configuration.yml"
+[2024-07-02T14:41:29.250+0000] {process_utils.py:190} INFO - DEBUG  | Reading SodaCL file "/opt/***/dossier/soda/checks//premier_checks.yml"
+[2024-07-02T14:41:29.250+0000] {process_utils.py:190} INFO - DEBUG  | Scan execution starts
+[2024-07-02T14:41:29.251+0000] {process_utils.py:190} INFO - DEBUG  | Postgres connection properties: host="postgres", port="None", database="***", user="***", options="-c search_path=public", connection_timeout="None"
+[2024-07-02T14:41:29.252+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.products.schema[products]:
+[2024-07-02T14:41:29.252+0000] {process_utils.py:190} INFO - SELECT column_name, data_type, is_nullable
+[2024-07-02T14:41:29.253+0000] {process_utils.py:190} INFO - FROM information_schema.columns
+[2024-07-02T14:41:29.253+0000] {process_utils.py:190} INFO - WHERE lower(table_name) = 'products'
+[2024-07-02T14:41:29.254+0000] {process_utils.py:190} INFO -   AND lower(table_catalog) = '***'
+[2024-07-02T14:41:29.254+0000] {process_utils.py:190} INFO -   AND lower(table_schema) = 'public'
+[2024-07-02T14:41:29.254+0000] {process_utils.py:190} INFO - ORDER BY ORDINAL_POSITION
+[2024-07-02T14:41:29.255+0000] {process_utils.py:190} INFO - INFO   | Scan summary:
+[2024-07-02T14:41:29.255+0000] {process_utils.py:190} INFO - DEBUG  | 1/1 query OK
+[2024-07-02T14:41:29.255+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.products.schema[products] [OK] 0:00:00.006960
+[2024-07-02T14:41:29.256+0000] {process_utils.py:190} INFO - INFO   | 1/1 check PASSED:
+[2024-07-02T14:41:29.256+0000] {process_utils.py:190} INFO - INFO   |     products in bdpostgres
+[2024-07-02T14:41:29.256+0000] {process_utils.py:190} INFO - INFO   |       Schema Check [/opt/***/dossier/soda/checks//premier_checks.yml] [PASSED]
+[2024-07-02T14:41:29.257+0000] {process_utils.py:190} INFO - INFO   |         schema_measured = [invoiceno text, stockcode text, description text, quantity integer, invoicedate timestamp without time zone, unitprice real, customerid real, country text]
+[2024-07-02T14:41:29.257+0000] {process_utils.py:190} INFO - INFO   | All is good. No failures. No warnings. No errors.
+[2024-07-02T14:41:29.258+0000] {process_utils.py:190} INFO - INFO   | Sending results to Soda Cloud
+[2024-07-02T14:41:29.258+0000] {process_utils.py:190} INFO - INFO   | Soda Cloud Trace: 4598836792795403589
+[2024-07-02T14:41:29.306+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-07-02T14:41:29.318+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=pipeline, task_id=check_load, execution_date=20240701T000000, start_date=20240702T144124, end_date=20240702T144129
+[2024-07-02T14:41:29.351+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-07-02T14:41:29.377+0000] {taskinstance.py:3281} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-07-02T15:51:08.004+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline.check_load scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-07-02T15:51:08.017+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline.check_load scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-07-02T15:51:08.018+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-07-02T15:51:08.037+0000] {taskinstance.py:2192} INFO - Executing <Task(_PythonExternalDecoratedOperator): check_load> on 2024-07-01 00:00:00+00:00
+[2024-07-02T15:51:08.046+0000] {standard_task_runner.py:60} INFO - Started process 78 to run task
+[2024-07-02T15:51:08.050+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pipeline', 'check_load', 'scheduled__2024-07-01T00:00:00+00:00', '--job-id', '8', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmp4c2k0aop']
+[2024-07-02T15:51:08.052+0000] {standard_task_runner.py:88} INFO - Job 8: Subtask check_load
+[2024-07-02T15:51:08.106+0000] {task_command.py:423} INFO - Running <TaskInstance: pipeline.check_load scheduled__2024-07-01T00:00:00+00:00 [running]> on host 907144e2666d
+[2024-07-02T15:51:08.195+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pipeline' AIRFLOW_CTX_TASK_ID='check_load' AIRFLOW_CTX_EXECUTION_DATE='2024-07-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-01T00:00:00+00:00'
+[2024-07-02T15:51:08.244+0000] {python.py:903} WARNING - When checking for Airflow installed in virtual environment got Command '['/opt/airflow/soda_venv/bin/python', '-c', 'from airflow import __version__; print(__version__)']' returned non-zero exit status 1.
+[2024-07-02T15:51:08.245+0000] {python.py:904} WARNING - This means that Airflow is not properly installed by  /opt/***/soda_venv/bin/python. Airflow context keys will not be available. Please Install Airflow 2.8.0 in your environment to access them.
+[2024-07-02T15:51:08.516+0000] {process_utils.py:182} INFO - Executing cmd: /opt/***/soda_venv/bin/python /tmp/venv-callw6y0xocc/script.py /tmp/venv-callw6y0xocc/script.in /tmp/venv-callw6y0xocc/script.out /tmp/venv-callw6y0xocc/string_args.txt /tmp/venv-callw6y0xocc/termination.log
+[2024-07-02T15:51:08.528+0000] {process_utils.py:186} INFO - Output:
+[2024-07-02T15:51:13.621+0000] {process_utils.py:190} INFO - Running Soda Scan ...
+[2024-07-02T15:51:13.621+0000] {process_utils.py:190} INFO - INFO   | Soda Core 3.0.45
+[2024-07-02T15:51:13.621+0000] {process_utils.py:190} INFO - DEBUG  | Reading configuration file "/opt/***/dossier/soda/configuration/configuration.yml"
+[2024-07-02T15:51:13.622+0000] {process_utils.py:190} INFO - DEBUG  | Reading SodaCL file "/opt/***/dossier/soda/checks//premier_checks.yml"
+[2024-07-02T15:51:13.622+0000] {process_utils.py:190} INFO - DEBUG  | Scan execution starts
+[2024-07-02T15:51:13.622+0000] {process_utils.py:190} INFO - DEBUG  | Postgres connection properties: host="postgres", port="None", database="***", user="***", options="-c search_path=public", connection_timeout="None"
+[2024-07-02T15:51:13.622+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.products.schema[products]:
+[2024-07-02T15:51:13.622+0000] {process_utils.py:190} INFO - SELECT column_name, data_type, is_nullable
+[2024-07-02T15:51:13.623+0000] {process_utils.py:190} INFO - FROM information_schema.columns
+[2024-07-02T15:51:13.623+0000] {process_utils.py:190} INFO - WHERE lower(table_name) = 'products'
+[2024-07-02T15:51:13.623+0000] {process_utils.py:190} INFO -   AND lower(table_catalog) = '***'
+[2024-07-02T15:51:13.623+0000] {process_utils.py:190} INFO -   AND lower(table_schema) = 'public'
+[2024-07-02T15:51:13.623+0000] {process_utils.py:190} INFO - ORDER BY ORDINAL_POSITION
+[2024-07-02T15:51:13.623+0000] {process_utils.py:190} INFO - INFO   | Scan summary:
+[2024-07-02T15:51:13.623+0000] {process_utils.py:190} INFO - DEBUG  | 1/1 query OK
+[2024-07-02T15:51:13.623+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.products.schema[products] [OK] 0:00:00.008206
+[2024-07-02T15:51:13.624+0000] {process_utils.py:190} INFO - INFO   | 1/1 check PASSED:
+[2024-07-02T15:51:13.624+0000] {process_utils.py:190} INFO - INFO   |     products in bdpostgres
+[2024-07-02T15:51:13.624+0000] {process_utils.py:190} INFO - INFO   |       Schema Check [/opt/***/dossier/soda/checks//premier_checks.yml] [PASSED]
+[2024-07-02T15:51:13.624+0000] {process_utils.py:190} INFO - INFO   |         schema_measured = [invoiceno text, stockcode text, description text, quantity integer, invoicedate timestamp without time zone, unitprice real, customerid real, country text]
+[2024-07-02T15:51:13.624+0000] {process_utils.py:190} INFO - INFO   | All is good. No failures. No warnings. No errors.
+[2024-07-02T15:51:13.625+0000] {process_utils.py:190} INFO - INFO   | Sending results to Soda Cloud
+[2024-07-02T15:51:13.625+0000] {process_utils.py:190} INFO - INFO   | Soda Cloud Trace: 7120553355784098961
+[2024-07-02T15:51:13.678+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-07-02T15:51:13.691+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=pipeline, task_id=check_load, execution_date=20240701T000000, start_date=20240702T155108, end_date=20240702T155113
+[2024-07-02T15:51:13.922+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-07-02T15:51:13.957+0000] {taskinstance.py:3281} INFO - 1 downstream tasks scheduled from follow-on schedule check

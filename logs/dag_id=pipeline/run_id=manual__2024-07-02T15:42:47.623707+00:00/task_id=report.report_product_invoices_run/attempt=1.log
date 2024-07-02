@@ -1,0 +1,109 @@
+[2024-07-02T15:44:16.283+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline.report.report_product_invoices_run manual__2024-07-02T15:42:47.623707+00:00 [queued]>
+[2024-07-02T15:44:16.302+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline.report.report_product_invoices_run manual__2024-07-02T15:42:47.623707+00:00 [queued]>
+[2024-07-02T15:44:16.302+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-07-02T15:44:16.324+0000] {taskinstance.py:2192} INFO - Executing <Task(DbtRunLocalOperator): report.report_product_invoices_run> on 2024-07-02 15:42:47.623707+00:00
+[2024-07-02T15:44:16.333+0000] {standard_task_runner.py:60} INFO - Started process 1620 to run task
+[2024-07-02T15:44:16.338+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pipeline', 'report.report_product_invoices_run', 'manual__2024-07-02T15:42:47.623707+00:00', '--job-id', '42', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpnnutzi6p']
+[2024-07-02T15:44:16.345+0000] {standard_task_runner.py:88} INFO - Job 42: Subtask report.report_product_invoices_run
+[2024-07-02T15:44:16.407+0000] {task_command.py:423} INFO - Running <TaskInstance: pipeline.report.report_product_invoices_run manual__2024-07-02T15:42:47.623707+00:00 [running]> on host e21b7712e0d7
+[2024-07-02T15:44:16.548+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pipeline' AIRFLOW_CTX_TASK_ID='report.report_product_invoices_run' AIRFLOW_CTX_EXECUTION_DATE='2024-07-02T15:42:47.623707+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-02T15:42:47.623707+00:00'
+[2024-07-02T15:44:16.551+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:16.551+0000[0m] {[34mlocal.py:[0m174} INFO[0m - [35m(astronomer-cosmos)[0m - Could not import dbtRunner. Falling back to subprocess for invoking dbt.[0m
+[2024-07-02T15:44:16.551+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:16.551+0000[0m] {[34mlocal.py:[0m174} INFO[0m - [35m(astronomer-cosmos)[0m - Could not import dbtRunner. Falling back to subprocess for invoking dbt.[0m
+[2024-07-02T15:44:16.551+0000] {local.py:174} INFO - Could not import dbtRunner. Falling back to subprocess for invoking dbt.
+[2024-07-02T15:44:16.552+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:16.552+0000[0m] {[34mlocal.py:[0m292} INFO[0m - [35m(astronomer-cosmos)[0m - Cloning project to writable temp directory /tmp/tmpxsxr39z3 from /opt/***/dossier/dbt[0m
+[2024-07-02T15:44:16.553+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:16.552+0000[0m] {[34mlocal.py:[0m292} INFO[0m - [35m(astronomer-cosmos)[0m - Cloning project to writable temp directory /tmp/tmpxsxr39z3 from /opt/***/dossier/dbt[0m
+[2024-07-02T15:44:16.552+0000] {local.py:292} INFO - Cloning project to writable temp directory /tmp/tmpxsxr39z3 from /opt/airflow/dossier/dbt
+[2024-07-02T15:44:16.555+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:16.554+0000[0m] {[34mlocal.py:[0m303} INFO[0m - [35m(astronomer-cosmos)[0m - Partial parse is enabled and the latest partial parse file is /opt/***/dossier/dbt/target/partial_parse.msgpack[0m
+[2024-07-02T15:44:16.555+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:16.554+0000[0m] {[34mlocal.py:[0m303} INFO[0m - [35m(astronomer-cosmos)[0m - Partial parse is enabled and the latest partial parse file is /opt/***/dossier/dbt/target/partial_parse.msgpack[0m
+[2024-07-02T15:44:16.554+0000] {local.py:303} INFO - Partial parse is enabled and the latest partial parse file is /opt/airflow/dossier/dbt/target/partial_parse.msgpack
+[2024-07-02T15:44:16.569+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:16.569+0000[0m] {[34mconfig.py:[0m288} INFO[0m - [35m(astronomer-cosmos)[0m - Using user-supplied profiles.yml at /opt/***/dossier/dbt/profiles.yml[0m
+[2024-07-02T15:44:16.569+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:16.569+0000[0m] {[34mconfig.py:[0m288} INFO[0m - [35m(astronomer-cosmos)[0m - Using user-supplied profiles.yml at /opt/***/dossier/dbt/profiles.yml[0m
+[2024-07-02T15:44:16.569+0000] {config.py:288} INFO - Using user-supplied profiles.yml at /opt/***/dossier/dbt/profiles.yml
+[2024-07-02T15:44:16.570+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:16.570+0000[0m] {[34mlocal.py:[0m247} INFO[0m - [35m(astronomer-cosmos)[0m - Trying to run the command:
+ ['/opt/***/dbt_env/bin/dbt', 'run', '--models', 'report_product_invoices', '--project-dir', '/tmp/tmpxsxr39z3', '--profiles-dir', '/opt/***/dossier/dbt', '--profile', '***', '--target', 'dev']
+From /tmp/tmpxsxr39z3[0m
+[2024-07-02T15:44:16.570+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:16.570+0000[0m] {[34mlocal.py:[0m247} INFO[0m - [35m(astronomer-cosmos)[0m - Trying to run the command:
+ ['/opt/***/dbt_env/bin/dbt', 'run', '--models', 'report_product_invoices', '--project-dir', '/tmp/tmpxsxr39z3', '--profiles-dir', '/opt/***/dossier/dbt', '--profile', '***', '--target', 'dev']
+From /tmp/tmpxsxr39z3[0m
+[2024-07-02T15:44:16.570+0000] {local.py:247} INFO - Trying to run the command:
+ ['/opt/***/dbt_env/bin/dbt', 'run', '--models', 'report_product_invoices', '--project-dir', '/tmp/tmpxsxr39z3', '--profiles-dir', '/opt/***/dossier/dbt', '--profile', '***', '--target', 'dev']
+From /tmp/tmpxsxr39z3
+[2024-07-02T15:44:16.572+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:16.572+0000[0m] {[34msubprocess.py:[0m60} INFO[0m - [35m(astronomer-cosmos)[0m - Tmp dir root location: 
+ /tmp[0m
+[2024-07-02T15:44:16.572+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:16.572+0000[0m] {[34msubprocess.py:[0m60} INFO[0m - [35m(astronomer-cosmos)[0m - Tmp dir root location: 
+ /tmp[0m
+[2024-07-02T15:44:16.572+0000] {subprocess.py:60} INFO - Tmp dir root location: 
+ /tmp
+[2024-07-02T15:44:16.573+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:16.573+0000[0m] {[34msubprocess.py:[0m73} INFO[0m - [35m(astronomer-cosmos)[0m - Running command: ['/opt/***/dbt_env/bin/dbt', 'run', '--models', 'report_product_invoices', '--project-dir', '/tmp/tmpxsxr39z3', '--profiles-dir', '/opt/***/dossier/dbt', '--profile', '***', '--target', 'dev'][0m
+[2024-07-02T15:44:16.573+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:16.573+0000[0m] {[34msubprocess.py:[0m73} INFO[0m - [35m(astronomer-cosmos)[0m - Running command: ['/opt/***/dbt_env/bin/dbt', 'run', '--models', 'report_product_invoices', '--project-dir', '/tmp/tmpxsxr39z3', '--profiles-dir', '/opt/***/dossier/dbt', '--profile', '***', '--target', 'dev'][0m
+[2024-07-02T15:44:16.573+0000] {subprocess.py:73} INFO - Running command: ['/opt/***/dbt_env/bin/dbt', 'run', '--models', 'report_product_invoices', '--project-dir', '/tmp/tmpxsxr39z3', '--profiles-dir', '/opt/***/dossier/dbt', '--profile', '***', '--target', 'dev']
+[2024-07-02T15:44:16.593+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:16.592+0000[0m] {[34msubprocess.py:[0m84} INFO[0m - [35m(astronomer-cosmos)[0m - Command output:[0m
+[2024-07-02T15:44:16.594+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:16.592+0000[0m] {[34msubprocess.py:[0m84} INFO[0m - [35m(astronomer-cosmos)[0m - Command output:[0m
+[2024-07-02T15:44:16.592+0000] {subprocess.py:84} INFO - Command output:
+[2024-07-02T15:44:20.080+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:20.079+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:20  Running with dbt=1.8.3[0m
+[2024-07-02T15:44:20.080+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:20.079+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:20  Running with dbt=1.8.3[0m
+[2024-07-02T15:44:20.079+0000] {subprocess.py:94} INFO - [0m15:44:20  Running with dbt=1.8.3
+[2024-07-02T15:44:20.580+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:20.580+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:20  Registered adapter: postgres=1.8.2[0m
+[2024-07-02T15:44:20.581+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:20.580+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:20  Registered adapter: postgres=1.8.2[0m
+[2024-07-02T15:44:20.580+0000] {subprocess.py:94} INFO - [0m15:44:20  Registered adapter: postgres=1.8.2
+[2024-07-02T15:44:20.967+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:20.967+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:20  Unable to do partial parsing because config vars, config profile, or config target have changed[0m
+[2024-07-02T15:44:20.968+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:20.967+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:20  Unable to do partial parsing because config vars, config profile, or config target have changed[0m
+[2024-07-02T15:44:20.967+0000] {subprocess.py:94} INFO - [0m15:44:20  Unable to do partial parsing because config vars, config profile, or config target have changed
+[2024-07-02T15:44:25.199+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:25.198+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:25  Found 7 models, 2 sources, 529 macros[0m
+[2024-07-02T15:44:25.199+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:25.198+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:25  Found 7 models, 2 sources, 529 macros[0m
+[2024-07-02T15:44:25.198+0000] {subprocess.py:94} INFO - [0m15:44:25  Found 7 models, 2 sources, 529 macros
+[2024-07-02T15:44:25.203+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:25.203+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:25[0m
+[2024-07-02T15:44:25.204+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:25.203+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:25[0m
+[2024-07-02T15:44:25.203+0000] {subprocess.py:94} INFO - [0m15:44:25
+[2024-07-02T15:44:25.484+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:25.483+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:25  Concurrency: 1 threads (target='dev')[0m
+[2024-07-02T15:44:25.485+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:25.483+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:25  Concurrency: 1 threads (target='dev')[0m
+[2024-07-02T15:44:25.483+0000] {subprocess.py:94} INFO - [0m15:44:25  Concurrency: 1 threads (target='dev')
+[2024-07-02T15:44:25.487+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:25.486+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:25[0m
+[2024-07-02T15:44:25.487+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:25.486+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:25[0m
+[2024-07-02T15:44:25.486+0000] {subprocess.py:94} INFO - [0m15:44:25
+[2024-07-02T15:44:25.511+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:25.510+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:25  1 of 1 START sql table model public.report_product_invoices .................... [RUN][0m
+[2024-07-02T15:44:25.511+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:25.510+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:25  1 of 1 START sql table model public.report_product_invoices .................... [RUN][0m
+[2024-07-02T15:44:25.510+0000] {subprocess.py:94} INFO - [0m15:44:25  1 of 1 START sql table model public.report_product_invoices .................... [RUN]
+[2024-07-02T15:44:32.519+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:32.518+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:32  1 of 1 OK created sql table model public.report_product_invoices ............... [[32mSELECT 10[0m in 7.00s][0m
+[2024-07-02T15:44:32.519+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:32.518+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:32  1 of 1 OK created sql table model public.report_product_invoices ............... [[32mSELECT 10[0m in 7.00s][0m
+[2024-07-02T15:44:32.518+0000] {subprocess.py:94} INFO - [0m15:44:32  1 of 1 OK created sql table model public.report_product_invoices ............... [[32mSELECT 10[0m in 7.00s]
+[2024-07-02T15:44:32.570+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:32.569+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:32[0m
+[2024-07-02T15:44:32.571+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:32.569+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:32[0m
+[2024-07-02T15:44:32.569+0000] {subprocess.py:94} INFO - [0m15:44:32
+[2024-07-02T15:44:32.574+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:32.573+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:32  Finished running 1 table model in 0 hours 0 minutes and 7.36 seconds (7.36s).[0m
+[2024-07-02T15:44:32.575+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:32.573+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:32  Finished running 1 table model in 0 hours 0 minutes and 7.36 seconds (7.36s).[0m
+[2024-07-02T15:44:32.573+0000] {subprocess.py:94} INFO - [0m15:44:32  Finished running 1 table model in 0 hours 0 minutes and 7.36 seconds (7.36s).
+[2024-07-02T15:44:32.846+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:32.846+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:32[0m
+[2024-07-02T15:44:32.847+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:32.846+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:32[0m
+[2024-07-02T15:44:32.846+0000] {subprocess.py:94} INFO - [0m15:44:32
+[2024-07-02T15:44:32.849+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:32.849+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:32  [32mCompleted successfully[0m[0m
+[2024-07-02T15:44:32.850+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:32.849+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:32  [32mCompleted successfully[0m[0m
+[2024-07-02T15:44:32.849+0000] {subprocess.py:94} INFO - [0m15:44:32  [32mCompleted successfully[0m
+[2024-07-02T15:44:32.852+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:32.852+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:32[0m
+[2024-07-02T15:44:32.853+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:32.852+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:32[0m
+[2024-07-02T15:44:32.852+0000] {subprocess.py:94} INFO - [0m15:44:32
+[2024-07-02T15:44:32.855+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:32.855+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:32  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1[0m
+[2024-07-02T15:44:32.856+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:32.855+0000[0m] {[34msubprocess.py:[0m94} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:32  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1[0m
+[2024-07-02T15:44:32.855+0000] {subprocess.py:94} INFO - [0m15:44:32  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2024-07-02T15:44:34.505+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:34.505+0000[0m] {[34msubprocess.py:[0m98} INFO[0m - [35m(astronomer-cosmos)[0m - Command exited with return code 0[0m
+[2024-07-02T15:44:34.506+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:34.505+0000[0m] {[34msubprocess.py:[0m98} INFO[0m - [35m(astronomer-cosmos)[0m - Command exited with return code 0[0m
+[2024-07-02T15:44:34.505+0000] {subprocess.py:98} INFO - Command exited with return code 0
+[2024-07-02T15:44:34.507+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:34.506+0000[0m] {[34mlocal.py:[0m254} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:32  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1[0m
+[2024-07-02T15:44:34.507+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:34.506+0000[0m] {[34mlocal.py:[0m254} INFO[0m - [35m(astronomer-cosmos)[0m - [0m15:44:32  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1[0m
+[2024-07-02T15:44:34.506+0000] {local.py:254} INFO - [0m15:44:32  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2024-07-02T15:44:34.530+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/manifest/v12.json is above dbt-ol supported version 7. This might cause errors.
+[2024-07-02T15:44:34.530+0000] {local.py:138} WARNING - Artifact schema version: https://schemas.getdbt.com/dbt/run-results/v6.json is above dbt-ol supported version 5. This might cause errors.
+[2024-07-02T15:44:34.541+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:34.541+0000[0m] {[34mlocal.py:[0m349} INFO[0m - [35m(astronomer-cosmos)[0m - Inlets: [Dataset(uri='postgres://postgres:5432/***.public.dim_product', extra=None), Dataset(uri='postgres://postgres:5432/***.public.fct_invoices', extra=None)][0m
+[2024-07-02T15:44:34.542+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:34.541+0000[0m] {[34mlocal.py:[0m349} INFO[0m - [35m(astronomer-cosmos)[0m - Inlets: [Dataset(uri='postgres://postgres:5432/***.public.dim_product', extra=None), Dataset(uri='postgres://postgres:5432/***.public.fct_invoices', extra=None)][0m
+[2024-07-02T15:44:34.541+0000] {local.py:349} INFO - Inlets: [Dataset(uri='postgres://postgres:5432/airflow.public.dim_product', extra=None), Dataset(uri='postgres://postgres:5432/airflow.public.fct_invoices', extra=None)]
+[2024-07-02T15:44:34.543+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:34.542+0000[0m] {[34mlocal.py:[0m350} INFO[0m - [35m(astronomer-cosmos)[0m - Outlets: [Dataset(uri='postgres://postgres:5432/***.public.report_product_invoices', extra=None)][0m
+[2024-07-02T15:44:34.543+0000] {log.py:232} WARNING - [[34m2024-07-02T15:44:34.542+0000[0m] {[34mlocal.py:[0m350} INFO[0m - [35m(astronomer-cosmos)[0m - Outlets: [Dataset(uri='postgres://postgres:5432/***.public.report_product_invoices', extra=None)][0m
+[2024-07-02T15:44:34.542+0000] {local.py:350} INFO - Outlets: [Dataset(uri='postgres://postgres:5432/airflow.public.report_product_invoices', extra=None)]
+[2024-07-02T15:44:34.544+0000] {dag.py:3033} INFO - Sync 1 DAGs
+[2024-07-02T15:44:34.596+0000] {dag.py:3820} INFO - Setting next_dagrun for pipeline to 2024-07-02T00:00:00+00:00, run_after=2024-07-03T00:00:00+00:00
+[2024-07-02T15:44:34.667+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/models/baseoperator.py:1476: RemovedInAirflow3Warning: Passing 'execution_date' to 'TaskInstance.xcom_push()' is deprecated.
+  context["ti"].xcom_push(key=key, value=value, execution_date=execution_date)
+
+[2024-07-02T15:44:34.725+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=pipeline, task_id=report.report_product_invoices_run, execution_date=20240702T154247, start_date=20240702T154416, end_date=20240702T154434
+[2024-07-02T15:44:34.844+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-07-02T15:44:34.895+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check

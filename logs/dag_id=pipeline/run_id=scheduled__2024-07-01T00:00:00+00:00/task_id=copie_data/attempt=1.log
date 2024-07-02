@@ -1,0 +1,96 @@
+[2024-07-02T09:27:09.785+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline.copie_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-07-02T09:27:09.811+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline.copie_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-07-02T09:27:09.812+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-07-02T09:27:09.841+0000] {taskinstance.py:2192} INFO - Executing <Task(PythonOperator): copie_data> on 2024-07-01 00:00:00+00:00
+[2024-07-02T09:27:09.854+0000] {standard_task_runner.py:60} INFO - Started process 87 to run task
+[2024-07-02T09:27:09.860+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pipeline', 'copie_data', 'scheduled__2024-07-01T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpt1v_1bq0']
+[2024-07-02T09:27:09.865+0000] {standard_task_runner.py:88} INFO - Job 4: Subtask copie_data
+[2024-07-02T09:27:10.019+0000] {task_command.py:423} INFO - Running <TaskInstance: pipeline.copie_data scheduled__2024-07-01T00:00:00+00:00 [running]> on host f675adcd3008
+[2024-07-02T09:27:10.296+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pipeline' AIRFLOW_CTX_TASK_ID='copie_data' AIRFLOW_CTX_EXECUTION_DATE='2024-07-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-01T00:00:00+00:00'
+[2024-07-02T09:27:10.304+0000] {postgres.py:172} INFO - Running copy expert: 
+    COPY products (InvoiceNo, StockCode, Description, Quantity,InvoiceDate, UnitPrice, CustomerID, Country)
+    FROM stdin
+    WITH DELIMITER ','
+    CSV HEADER
+    , filename: /opt/***/dossier/data/online_retail.csv
+[2024-07-02T09:27:10.327+0000] {base.py:83} INFO - Using connection ID 'postgres' for task execution.
+[2024-07-02T09:27:10.342+0000] {taskinstance.py:2699} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/pipeline.py", line 16, in copie
+    hook.copy_expert(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/postgres/hooks/postgres.py", line 178, in copy_expert
+    cur.copy_expert(sql, file)
+psycopg2.errors.UndefinedTable: relation "products" does not exist
+
+[2024-07-02T09:27:10.362+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=pipeline, task_id=copie_data, execution_date=20240701T000000, start_date=20240702T092709, end_date=20240702T092710
+[2024-07-02T09:27:10.388+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 4 for task copie_data (relation "products" does not exist
+; 87)
+[2024-07-02T09:27:10.446+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-07-02T09:27:10.509+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-02T12:12:36.722+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline.copie_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-07-02T12:12:36.738+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline.copie_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-07-02T12:12:36.738+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-07-02T12:12:36.762+0000] {taskinstance.py:2192} INFO - Executing <Task(PythonOperator): copie_data> on 2024-07-01 00:00:00+00:00
+[2024-07-02T12:12:36.769+0000] {standard_task_runner.py:60} INFO - Started process 208 to run task
+[2024-07-02T12:12:36.773+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pipeline', 'copie_data', 'scheduled__2024-07-01T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpwi5ed_e0']
+[2024-07-02T12:12:36.774+0000] {standard_task_runner.py:88} INFO - Job 3: Subtask copie_data
+[2024-07-02T12:12:36.835+0000] {task_command.py:423} INFO - Running <TaskInstance: pipeline.copie_data scheduled__2024-07-01T00:00:00+00:00 [running]> on host 11fbd99a881f
+[2024-07-02T12:12:36.926+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pipeline' AIRFLOW_CTX_TASK_ID='copie_data' AIRFLOW_CTX_EXECUTION_DATE='2024-07-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-01T00:00:00+00:00'
+[2024-07-02T12:12:36.927+0000] {postgres.py:172} INFO - Running copy expert: 
+    COPY products (InvoiceNo, StockCode, Description, Quantity,InvoiceDate, UnitPrice, CustomerID, Country)
+    FROM stdin
+    WITH DELIMITER ','
+    CSV HEADER
+    , filename: /opt/***/dossier/data/online_retail.csv
+[2024-07-02T12:12:36.936+0000] {base.py:83} INFO - Using connection ID 'postgres' for task execution.
+[2024-07-02T12:12:38.021+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-07-02T12:12:38.035+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=pipeline, task_id=copie_data, execution_date=20240701T000000, start_date=20240702T121236, end_date=20240702T121238
+[2024-07-02T12:12:38.066+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-07-02T12:12:38.090+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-02T14:41:21.104+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline.copie_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-07-02T14:41:21.116+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline.copie_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-07-02T14:41:21.116+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-07-02T14:41:21.131+0000] {taskinstance.py:2192} INFO - Executing <Task(PythonOperator): copie_data> on 2024-07-01 00:00:00+00:00
+[2024-07-02T14:41:21.138+0000] {standard_task_runner.py:60} INFO - Started process 319 to run task
+[2024-07-02T14:41:21.141+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pipeline', 'copie_data', 'scheduled__2024-07-01T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmphkqy143p']
+[2024-07-02T14:41:21.144+0000] {standard_task_runner.py:88} INFO - Job 4: Subtask copie_data
+[2024-07-02T14:41:21.194+0000] {task_command.py:423} INFO - Running <TaskInstance: pipeline.copie_data scheduled__2024-07-01T00:00:00+00:00 [running]> on host e21b7712e0d7
+[2024-07-02T14:41:21.278+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pipeline' AIRFLOW_CTX_TASK_ID='copie_data' AIRFLOW_CTX_EXECUTION_DATE='2024-07-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-01T00:00:00+00:00'
+[2024-07-02T14:41:21.280+0000] {postgres.py:172} INFO - Running copy expert: 
+    COPY products (InvoiceNo, StockCode, Description, Quantity,InvoiceDate, UnitPrice, CustomerID, Country)
+    FROM stdin
+    WITH DELIMITER ','
+    CSV HEADER
+    , filename: /opt/***/dossier/data/online_retail.csv
+[2024-07-02T14:41:21.289+0000] {base.py:83} INFO - Using connection ID 'postgres' for task execution.
+[2024-07-02T14:41:23.090+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-07-02T14:41:23.103+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=pipeline, task_id=copie_data, execution_date=20240701T000000, start_date=20240702T144121, end_date=20240702T144123
+[2024-07-02T14:41:23.160+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-07-02T14:41:23.190+0000] {taskinstance.py:3281} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-07-02T15:51:04.157+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline.copie_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-07-02T15:51:04.170+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline.copie_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-07-02T15:51:04.170+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-07-02T15:51:04.188+0000] {taskinstance.py:2192} INFO - Executing <Task(PythonOperator): copie_data> on 2024-07-01 00:00:00+00:00
+[2024-07-02T15:51:04.195+0000] {standard_task_runner.py:60} INFO - Started process 74 to run task
+[2024-07-02T15:51:04.199+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pipeline', 'copie_data', 'scheduled__2024-07-01T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpe_cvr0yc']
+[2024-07-02T15:51:04.202+0000] {standard_task_runner.py:88} INFO - Job 6: Subtask copie_data
+[2024-07-02T15:51:04.266+0000] {task_command.py:423} INFO - Running <TaskInstance: pipeline.copie_data scheduled__2024-07-01T00:00:00+00:00 [running]> on host 907144e2666d
+[2024-07-02T15:51:04.376+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pipeline' AIRFLOW_CTX_TASK_ID='copie_data' AIRFLOW_CTX_EXECUTION_DATE='2024-07-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-01T00:00:00+00:00'
+[2024-07-02T15:51:04.378+0000] {postgres.py:172} INFO - Running copy expert: 
+    COPY products (InvoiceNo, StockCode, Description, Quantity,InvoiceDate, UnitPrice, CustomerID, Country)
+    FROM stdin
+    WITH DELIMITER ','
+    CSV HEADER
+    , filename: /opt/***/dossier/data/online_retail.csv
+[2024-07-02T15:51:04.380+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2024-07-02T15:51:04.380+0000] {base.py:83} INFO - Using connection ID 'postgres' for task execution.
+[2024-07-02T15:51:06.313+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-07-02T15:51:06.324+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=pipeline, task_id=copie_data, execution_date=20240701T000000, start_date=20240702T155104, end_date=20240702T155106
+[2024-07-02T15:51:06.376+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-07-02T15:51:06.418+0000] {taskinstance.py:3281} INFO - 1 downstream tasks scheduled from follow-on schedule check

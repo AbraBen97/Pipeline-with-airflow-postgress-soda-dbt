@@ -1,0 +1,61 @@
+[2024-07-02T15:52:26.990+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline.check_report manual__2024-07-02T15:50:58.446540+00:00 [queued]>
+[2024-07-02T15:52:27.000+0000] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline.check_report manual__2024-07-02T15:50:58.446540+00:00 [queued]>
+[2024-07-02T15:52:27.000+0000] {taskinstance.py:2171} INFO - Starting attempt 1 of 1
+[2024-07-02T15:52:27.019+0000] {taskinstance.py:2192} INFO - Executing <Task(_PythonExternalDecoratedOperator): check_report> on 2024-07-02 15:50:58.446540+00:00
+[2024-07-02T15:52:27.026+0000] {standard_task_runner.py:60} INFO - Started process 326 to run task
+[2024-07-02T15:52:27.029+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'pipeline', 'check_report', 'manual__2024-07-02T15:50:58.446540+00:00', '--job-id', '23', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmp9iikurc1']
+[2024-07-02T15:52:27.032+0000] {standard_task_runner.py:88} INFO - Job 23: Subtask check_report
+[2024-07-02T15:52:27.076+0000] {task_command.py:423} INFO - Running <TaskInstance: pipeline.check_report manual__2024-07-02T15:50:58.446540+00:00 [running]> on host 907144e2666d
+[2024-07-02T15:52:27.281+0000] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pipeline' AIRFLOW_CTX_TASK_ID='check_report' AIRFLOW_CTX_EXECUTION_DATE='2024-07-02T15:50:58.446540+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-02T15:50:58.446540+00:00'
+[2024-07-02T15:52:27.322+0000] {python.py:903} WARNING - When checking for Airflow installed in virtual environment got Command '['/opt/airflow/soda_venv/bin/python', '-c', 'from airflow import __version__; print(__version__)']' returned non-zero exit status 1.
+[2024-07-02T15:52:27.323+0000] {python.py:904} WARNING - This means that Airflow is not properly installed by  /opt/***/soda_venv/bin/python. Airflow context keys will not be available. Please Install Airflow 2.8.0 in your environment to access them.
+[2024-07-02T15:52:27.532+0000] {process_utils.py:182} INFO - Executing cmd: /opt/***/soda_venv/bin/python /tmp/venv-callvt238smh/script.py /tmp/venv-callvt238smh/script.in /tmp/venv-callvt238smh/script.out /tmp/venv-callvt238smh/string_args.txt /tmp/venv-callvt238smh/termination.log
+[2024-07-02T15:52:27.543+0000] {process_utils.py:186} INFO - Output:
+[2024-07-02T15:52:30.931+0000] {process_utils.py:190} INFO - Running Soda Scan ...
+[2024-07-02T15:52:30.931+0000] {process_utils.py:190} INFO - INFO   | Soda Core 3.0.45
+[2024-07-02T15:52:30.932+0000] {process_utils.py:190} INFO - DEBUG  | Reading configuration file "/opt/***/dossier/soda/configuration/configuration.yml"
+[2024-07-02T15:52:30.932+0000] {process_utils.py:190} INFO - DEBUG  | Reading SodaCL file "/opt/***/dossier/soda/checks/report/report_product_invoices.yml"
+[2024-07-02T15:52:30.932+0000] {process_utils.py:190} INFO - DEBUG  | Reading SodaCL file "/opt/***/dossier/soda/checks/report/report_year_invoices.yml"
+[2024-07-02T15:52:30.933+0000] {process_utils.py:190} INFO - DEBUG  | Reading SodaCL file "/opt/***/dossier/soda/checks/report/report_customer_invoices.yml"
+[2024-07-02T15:52:30.933+0000] {process_utils.py:190} INFO - DEBUG  | Scan execution starts
+[2024-07-02T15:52:30.933+0000] {process_utils.py:190} INFO - DEBUG  | Postgres connection properties: host="postgres", port="None", database="***", user="***", options="-c search_path=public", connection_timeout="None"
+[2024-07-02T15:52:30.934+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.report_product_invoices.aggregation[0]:
+[2024-07-02T15:52:30.934+0000] {process_utils.py:190} INFO - SELECT
+[2024-07-02T15:52:30.934+0000] {process_utils.py:190} INFO -   COUNT(CASE WHEN stock_code IS NULL THEN 1 END),
+[2024-07-02T15:52:30.934+0000] {process_utils.py:190} INFO -   MIN(total_quantity_sold)
+[2024-07-02T15:52:30.934+0000] {process_utils.py:190} INFO - FROM public.report_product_invoices
+[2024-07-02T15:52:30.935+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.report_year_invoices.aggregation[0]:
+[2024-07-02T15:52:30.935+0000] {process_utils.py:190} INFO - SELECT
+[2024-07-02T15:52:30.935+0000] {process_utils.py:190} INFO -   MIN(num_invoices)
+[2024-07-02T15:52:30.935+0000] {process_utils.py:190} INFO - FROM public.report_year_invoices
+[2024-07-02T15:52:30.935+0000] {process_utils.py:190} INFO - DEBUG  | Query bdpostgres.report_customer_invoices.aggregation[0]:
+[2024-07-02T15:52:30.935+0000] {process_utils.py:190} INFO - SELECT
+[2024-07-02T15:52:30.936+0000] {process_utils.py:190} INFO -   COUNT(CASE WHEN country IS NULL THEN 1 END),
+[2024-07-02T15:52:30.936+0000] {process_utils.py:190} INFO -   MIN(total_invoices)
+[2024-07-02T15:52:30.936+0000] {process_utils.py:190} INFO - FROM public.report_customer_invoices
+[2024-07-02T15:52:30.936+0000] {process_utils.py:190} INFO - INFO   | Scan summary:
+[2024-07-02T15:52:30.936+0000] {process_utils.py:190} INFO - DEBUG  | 3/3 queries OK
+[2024-07-02T15:52:30.936+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.report_product_invoices.aggregation[0] [OK] 0:00:00.000881
+[2024-07-02T15:52:30.936+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.report_year_invoices.aggregation[0] [OK] 0:00:00.000363
+[2024-07-02T15:52:30.937+0000] {process_utils.py:190} INFO - DEBUG  |   bdpostgres.report_customer_invoices.aggregation[0] [OK] 0:00:00.000299
+[2024-07-02T15:52:30.937+0000] {process_utils.py:190} INFO - INFO   | 5/5 checks PASSED:
+[2024-07-02T15:52:30.937+0000] {process_utils.py:190} INFO - INFO   |     report_product_invoices in bdpostgres
+[2024-07-02T15:52:30.937+0000] {process_utils.py:190} INFO - INFO   |       All products have a stock code [/opt/***/dossier/soda/checks/report/report_product_invoices.yml] [PASSED]
+[2024-07-02T15:52:30.937+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-02T15:52:30.938+0000] {process_utils.py:190} INFO - INFO   |       min(total_quantity_sold) fail when <= 0 [/opt/***/dossier/soda/checks/report/report_product_invoices.yml] [PASSED]
+[2024-07-02T15:52:30.938+0000] {process_utils.py:190} INFO - INFO   |         check_value: 67736
+[2024-07-02T15:52:30.938+0000] {process_utils.py:190} INFO - INFO   |     report_year_invoices in bdpostgres
+[2024-07-02T15:52:30.938+0000] {process_utils.py:190} INFO - INFO   |       min(num_invoices) fail when < 0 [/opt/***/dossier/soda/checks/report/report_year_invoices.yml] [PASSED]
+[2024-07-02T15:52:30.939+0000] {process_utils.py:190} INFO - INFO   |         check_value: 18532
+[2024-07-02T15:52:30.939+0000] {process_utils.py:190} INFO - INFO   |     report_customer_invoices in bdpostgres
+[2024-07-02T15:52:30.939+0000] {process_utils.py:190} INFO - INFO   |       All customers have a country [/opt/***/dossier/soda/checks/report/report_customer_invoices.yml] [PASSED]
+[2024-07-02T15:52:30.940+0000] {process_utils.py:190} INFO - INFO   |         check_value: 0
+[2024-07-02T15:52:30.940+0000] {process_utils.py:190} INFO - INFO   |       min(total_invoices) fail when <= 0 [/opt/***/dossier/soda/checks/report/report_customer_invoices.yml] [PASSED]
+[2024-07-02T15:52:30.940+0000] {process_utils.py:190} INFO - INFO   |         check_value: 3608
+[2024-07-02T15:52:30.940+0000] {process_utils.py:190} INFO - INFO   | All is good. No failures. No warnings. No errors.
+[2024-07-02T15:52:30.941+0000] {process_utils.py:190} INFO - INFO   | Sending results to Soda Cloud
+[2024-07-02T15:52:30.941+0000] {process_utils.py:190} INFO - INFO   | Soda Cloud Trace: 63653358569762443
+[2024-07-02T15:52:30.989+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-07-02T15:52:30.999+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=pipeline, task_id=check_report, execution_date=20240702T155058, start_date=20240702T155226, end_date=20240702T155230
+[2024-07-02T15:52:31.018+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-07-02T15:52:31.036+0000] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check
