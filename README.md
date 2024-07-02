@@ -1,39 +1,42 @@
 
 # Pipeline Airflow, Postgres, Soda et dbt
 
-Ce fichier vous permet de mettre en place une pipeline avec Airflow, Postgres, Soda et dbt.
+This file guides you through setting up a pipeline with Airflow, Postgres, Soda, and dbt.
 
-## Pré-requis
 
-Assurez-vous d'avoir Docker et Docker Compose installés sur votre machine.
+## Prerequisites
+
+Ensure you have Docker and Docker Compose installed on your machine.
+
 
 ## Installation
 
-### Étape 1 : Cloner le projet
+### Step 1: Clone the Project
 
-Clonez ce projet depuis cette page :
+Clone this project from this page:
+
 
 ```bash
 git clone [URL_DU_PROJET]
 cd [NOM_DU_PROJET]
 ```
 
-### Étape 2 : Créer un fichier .env
+### Step 2: Create a .env File
 
-Créez un fichier `.env` à la racine du projet et ajoutez les lignes suivantes :
+Create a `.env`  file at the root of the project and add the following lines:
 
 ```bash
 AIRFLOW_UID=1000
 AIRFLOW_IMAGE_NAME=mon_image
 ```
 
-### Étape 3 : Obtenir une clé Soda
+### Step 3: Obtain a Soda Key
 
-Rendez-vous sur la page [Soda Cloud](https://cloud.soda.io/) et générez une clé API.
+Go to the [Soda Cloud](https://cloud.soda.io/) , add your API key:
 
-### Étape 4 : Configurer Soda
+### Step 4: Configure Soda
 
-Dans le fichier `/dossier/soda/configuration/configuration.yml`, ajoutez votre clé API.
+In the file `/dossier/soda/configuration/configuration.yml`, ajoutez votre clé API.
 
 ```yaml
   host: YOUR HOST
@@ -41,29 +44,30 @@ Dans le fichier `/dossier/soda/configuration/configuration.yml`, ajoutez votre c
   api_key_secret: YOUR API KEY
 ```
 
-### Étape 5 : Démarrer les services
+### Step 5: Start the Services
 
-Accédez à votre terminal et exécutez la commande suivante :
+Open your terminal and run the following command:
 
 ```bash
 docker compose up -d
 ```
 
-### Étape 6 : Accéder à Airflow
+### Step 6: Access Airflow
 
-Ouvrez votre navigateur et allez à l'adresse suivante : [localhost:8080](http://localhost:8080)
+Open your browser and go to the following address: [localhost:8080](http://localhost:8080)
 
-## Utilisation
+## Usage
 
-1. Connectez-vous à l'interface d'Airflow.
-2. Configurez vos connexions et variables nécessaires pour Postgres, Soda et dbt.
-3. Exécutez vos DAGs pour démarrer la pipeline.
+1. Log in to the Airflow interface.
+2. Configure the necessary connections and variables for Postgres, Soda, and dbt
+3. Run your DAGs to start the pipeline.
 
 ## Support
 
-Pour toute question ou problème, veuillez ouvrir une issue sur la page GitHub du projet.
+For any questions or issues, please open an issue on the project's GitHub page.
 
-## Félicitations
+## Congratulations
 
-Vous avez réussi à mettre en place votre pipeline avec Airflow, Postgres, Soda et dbt ! 🎉
+You have successfully set up your pipeline with Airflow, Postgres, Soda, and dbt! 🎉
+
 
